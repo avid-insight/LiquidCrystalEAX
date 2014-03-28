@@ -1,0 +1,22 @@
+LiquidCrystalEAX	KEYWORD1
+
+init	KEYWORD2
+enableClock	KEYWORD2
+disableClock	KEYWORD2
+hardReset	KEYWORD2
+validateCharacter	KEYWORD2
+setCursorPos	KEYWORD2
+softReset	KEYWORD2
+clearDisplay	KEYWORD2
+moveCursorHome	KEYWORD2
+returnCursor	KEYWORD2
+setCursorDir	KEYWORD2
+moveCursor	KEYWORD2
+useBlockCursor	KEYWORD2
+useUnderlineCursor	KEYWORD2
+showCursor	KEYWORD2
+hideCursor	KEYWORD2
+displayOn	KEYWORD2
+displayOff	KEYWORD2
+suppressDisplay	KEYWORD2
+write	KEYWORD2
