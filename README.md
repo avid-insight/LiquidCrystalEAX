@@ -1,36 +1,28 @@
-====================================
-LiquidCrystalEAX library for Arduino
-====================================
+# LiquidCrystalEAX library for Arduino
 
-Author:  Peter R. Bloomfield
-Website: www.avid-insight.co.uk
+Author:  [Peter R. Bloomfield][1]
+My blog: http:/avidinsight.uk
 
 License: GNU GPL v3
 
---------- --------- --------- --------- --------- --------- --------- ---------
-= CONTENTS =
---------- --------- --------- --------- --------- --------- --------- ---------
+# Contents
 
-1. INTRODUCTORY NOTE
-2. SUMMARY
-3. SETUP NOTES (HARDWARE)
-4. EXAMPLE USAGE (SOFTWARE)
-5. TROUBLESHOOTING
+ 1. INTRODUCTORY NOTE
+ 2. SUMMARY
+ 3. SETUP NOTES (HARDWARE)
+ 4. EXAMPLE USAGE (SOFTWARE)
+ 5. TROUBLESHOOTING
 
---------- --------- --------- --------- --------- --------- --------- ---------
-= 1. INTRODUCTORY NOTE =
---------- --------- --------- --------- --------- --------- --------- ---------
+# 1. Introductory Note
 
 This library is still in early development. It is my intention to
 overhaul it so that the methods and usage more closely resemble the standard
 LiquidCrystal library (including inheriting from the Print class).
 
-In other words, expect some breaking interface changes soon!
+In other words, expect some breaking interface changes. (Eventually...)
 
 
---------- --------- --------- --------- --------- --------- --------- ---------
-= 2. SUMMARY =
---------- --------- --------- --------- --------- --------- --------- ---------
+# 2. Summary
 
 This is an Arduino library for controlling Epson EA-X series alphanumeric LCD
 displays. These displays are not compatible with the typical Hitachi HD44780
@@ -49,9 +41,8 @@ following models:
 
 At the time of writing it's only been tested on the EA-X16027AR.
 
---------- --------- --------- --------- --------- --------- --------- ---------
-= 3. SETUP NOTES (HARDWARE) =
---------- --------- --------- --------- --------- --------- --------- ---------
+
+# 3. Setup Notes (Hardware)
 
 You will need to connect at least 11 pins of the LCD to your Arduino. These are:
 
@@ -70,12 +61,13 @@ Pins which must be wired separately:
 
  * Vout (contrast)
 
-== 3.1 RESET ==
+ 
+## 3.1 Reset
 Connecting the Reset pin to your Arduino will let you reset it from software.
 If you don't intend to do that then connect it directly to +5v, as it is active
 low.
 
-== 3.2 CLOCK INPUT ==
+## 3.2 Clock Input
 The LCD display requires some kind of clock input (ENB) at around 2MHz. You may
 want to supply an external clock source for this. As an easy alternative, you
 can connect it to any of the Arduino's output pins, and let this library
@@ -87,7 +79,7 @@ See the Arduino documentation for more details on that:
 
  * http://arduino.cc/en/Reference/Tone
 
-== 3.3 CHIP SELECT ==
+## 3.3 Chip Select
 If you are only using one display, connect the chip select pin directly to
 ground (it is active low).
 
@@ -98,44 +90,40 @@ chip select pin low to enable that display.
 This library does not provide any support for chip select. You will need to set
 it up yourself.
  
-== 3.4 Vout ==
+## 3.4 Vout
 The EAX displays have a Vout pin for controlling contrast. You should connect
 it to a potentiometer or fixed voltage divider, as described in the data sheet.
 Do not leave it floating.
 
 
---------- --------- --------- --------- --------- --------- --------- ---------
-= 4. EXAMPLE USAGE (SOFTWARE) =
---------- --------- --------- --------- --------- --------- --------- ---------
+# 4. Example Usage (software)
 
-LiquidCrystalEAX lcd(
-   2, 3, 4, 5, 6, 7, 8, 9, // data 0-7
-   10, // data select
-   11, // clock input
-   12, // write enable
-   13, // read enable
-   14  // reset
-);
+    LiquidCrystalEAX lcd(
+       2, 3, 4, 5, 6, 7, 8, 9, // data 0-7
+       10, // data select
+       11, // clock input
+       12, // write enable
+       13, // read enable
+       14  // reset
+    );
 
-void setup()
-{    
-    lcd.init();
-    lcd.enableClock();
-    lcd.hardReset();
-    lcd.clearDisplay();
-    lcd.displayOn();
- 
-    lcd.write("Hello World");
-}
+    void setup()
+    {    
+        lcd.init();
+        lcd.enableClock();
+        lcd.hardReset();
+        lcd.clearDisplay();
+        lcd.displayOn();
+     
+        lcd.write("Hello World");
+    }
 
-void loop()
-{
-}
+    void loop()
+    {
+    }
 
 
---------- --------- --------- --------- --------- --------- --------- ---------
-= 5. TROUBLESHOOTING =
---------- --------- --------- --------- --------- --------- --------- ---------
+# 5. Troubleshooting
 
 I've found that it's quite easy to make several mistakes which can prevent the
 display from working as expected.
@@ -159,3 +147,6 @@ Things to check if the display doesn't seem to be working:
  * Activate display - currently, you need to call the library's displayOn()
     method before anything will appear, as the display is deactivated by
     default in the hardware.
+
+    
+[1]: http://peter.avidinsight.uk
