@@ -1,9 +1,11 @@
 # LiquidCrystalEAX library for Arduino
 
-Author:  [Peter R. Bloomfield][1]
-My blog: http:/avidinsight.uk
+ * License: GNU GPL v3
 
-License: GNU GPL v3
+ * Author:  Peter R. Bloomfield
+  * My blog: http://avidinsight.uk
+  * My online CV/portfolio: http://peter.avidinsight.uk
+
 
 # Contents
 
@@ -148,5 +150,3 @@ Things to check if the display doesn't seem to be working:
     method before anything will appear, as the display is deactivated by
     default in the hardware.
 
-    
-[1]: http://peter.avidinsight.uk
